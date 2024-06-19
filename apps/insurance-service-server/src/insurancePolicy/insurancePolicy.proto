@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package insurancePolicy;
+service InsurancePolicyService {
+ rpc createInsurancePolicy (InsurancePolicyCreateInput) returns (InsurancePolicy) {}
+rpc insurancePolicies (findManyParams) returns (stream InsurancePolicy) {}
+rpc insurancePolicy (InsurancePolicyWhereUniqueInput) returns (InsurancePolicy) {}
+rpc updateInsurancePolicy (InsurancePolicyUpdateInput) returns (InsurancePolicy) {}
+rpc deleteInsurancePolicy (InsurancePolicyWhereUniqueInput) returns (InsurancePolicy) {}
+rpc findManyInsurancePolicy (InsurancePolicyWhereUniqueInput) returns (stream Claim) {}
+rpc updateInsurancePolicy (ClaimParams) returns (stream Claim) {}
+rpc connectInsurancePolicy (ClaimParams) returns (Claim) {}
+rpc disconnectInsurancePolicy (ClaimParams) returns (Claim) {} 
+ }
+message InsurancePolicyCreateInput {
+repeated Claim claims = 1;
+int32 coverageAmount = 2;
+string createdAt = 3;
+string effectiveDate = 4;
+string expiryDate = 5;
+string id = 6;
+string policyNumber = 7;
+int32 premiumAmount = 8;
+string updatedAt = 9;
+};
+message InsurancePolicy {
+repeated Claim claims = 1;
+int32 coverageAmount = 2;
+string createdAt = 3;
+string effectiveDate = 4;
+string expiryDate = 5;
+string id = 6;
+string policyNumber = 7;
+int32 premiumAmount = 8;
+string updatedAt = 9;
+};
+message InsurancePolicyWhereUniqueInput {
+repeated Claim claims = 1;
+int32 coverageAmount = 2;
+string createdAt = 3;
+string effectiveDate = 4;
+string expiryDate = 5;
+string id = 6;
+string policyNumber = 7;
+int32 premiumAmount = 8;
+string updatedAt = 9;
+};
+message InsurancePolicyUpdateInput {
+repeated Claim claims = 1;
+int32 coverageAmount = 2;
+string createdAt = 3;
+string effectiveDate = 4;
+string expiryDate = 5;
+string id = 6;
+string policyNumber = 7;
+int32 premiumAmount = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};
+message Claim {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message ClaimWhereUniqueInput {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message ClaimParams {
+InsurancePolicyWhereUniqueInput insurancePolicyWhereUniqueInput = 1;
+ClaimWhereUniqueInput claimWhereUniqueInput = 2;
+};

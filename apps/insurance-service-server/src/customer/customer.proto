@@ -1,0 +1,85 @@
+syntax = "proto3";
+
+                 package customer;
+service CustomerService {
+ rpc createCustomer (CustomerCreateInput) returns (Customer) {}
+rpc customers (findManyParams) returns (stream Customer) {}
+rpc customer (CustomerWhereUniqueInput) returns (Customer) {}
+rpc updateCustomer (CustomerUpdateInput) returns (Customer) {}
+rpc deleteCustomer (CustomerWhereUniqueInput) returns (Customer) {}
+rpc findManyCustomer (CustomerWhereUniqueInput) returns (stream InsurancePolicy) {}
+rpc updateCustomer (InsurancePolicyParams) returns (stream InsurancePolicy) {}
+rpc connectCustomer (InsurancePolicyParams) returns (InsurancePolicy) {}
+rpc disconnectCustomer (InsurancePolicyParams) returns (InsurancePolicy) {} 
+ }
+message CustomerCreateInput {
+string address = 1;
+string createdAt = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+repeated InsurancePolicy insurancePolicies = 6;
+string lastName = 7;
+string phone = 8;
+string updatedAt = 9;
+};
+message Customer {
+string address = 1;
+string createdAt = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+repeated InsurancePolicy insurancePolicies = 6;
+string lastName = 7;
+string phone = 8;
+string updatedAt = 9;
+};
+message CustomerWhereUniqueInput {
+string address = 1;
+string createdAt = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+repeated InsurancePolicy insurancePolicies = 6;
+string lastName = 7;
+string phone = 8;
+string updatedAt = 9;
+};
+message CustomerUpdateInput {
+string address = 1;
+string createdAt = 2;
+string email = 3;
+string firstName = 4;
+string id = 5;
+repeated InsurancePolicy insurancePolicies = 6;
+string lastName = 7;
+string phone = 8;
+string updatedAt = 9;
+};
+message findManyParams {
+
+};
+message InsurancePolicy {
+int32 coverageAmount = 1;
+string createdAt = 2;
+string effectiveDate = 3;
+string expiryDate = 4;
+string id = 5;
+string policyNumber = 6;
+int32 premiumAmount = 7;
+string updatedAt = 8;
+};
+message InsurancePolicyWhereUniqueInput {
+int32 coverageAmount = 1;
+string createdAt = 2;
+string effectiveDate = 3;
+string expiryDate = 4;
+string id = 5;
+string policyNumber = 6;
+int32 premiumAmount = 7;
+string updatedAt = 8;
+};
+message InsurancePolicyParams {
+CustomerWhereUniqueInput customerWhereUniqueInput = 1;
+InsurancePolicyWhereUniqueInput insurancepolicyWhereUniqueInput = 2;
+};

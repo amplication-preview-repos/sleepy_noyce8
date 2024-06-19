@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+                 package claim;
+service ClaimService {
+ rpc createClaim (ClaimCreateInput) returns (Claim) {}
+rpc claims (findManyParams) returns (stream Claim) {}
+rpc claim (ClaimWhereUniqueInput) returns (Claim) {}
+rpc updateClaim (ClaimUpdateInput) returns (Claim) {}
+rpc deleteClaim (ClaimWhereUniqueInput) returns (Claim) {} 
+ }
+message ClaimCreateInput {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message Claim {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message ClaimWhereUniqueInput {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message ClaimUpdateInput {
+int32 amountClaimed = 1;
+string claimNumber = 2;
+string createdAt = 3;
+string dateOfClaim = 4;
+string description = 5;
+string id = 6;
+repeated string status = 7;
+string updatedAt = 8;
+};
+message findManyParams {
+
+};
